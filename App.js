@@ -4,9 +4,11 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const passport = require('passport');
 const localStrategy = require('passport-local');
+const path = require('path');
 
 const User = require('./models/user');
 const indexRoutes = require('./routes/index');
+const postRoutes = require('./routes/post');
 const methodOverride = require('method-override');
 const flash = require('connect-flash');
 
@@ -36,8 +38,10 @@ app.use((req, res, next) => {
 
    next();
 });
+app.use('/static', express.static(path.join(__dirname, 'public')))
 
 app.use(indexRoutes);
+app.use('/post', postRoutes);
 
 app.listen(3000 || process.env.PORT, process.env.IP, () => {
    console.log("Bloggie is running..");

@@ -3,11 +3,10 @@
 
 <head>
    <meta charset="UTF-8">
-   <title>Bloggie</title>
+   <title>Youth of Happiness</title>
    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
-   <link rel="stylesheet" href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
-   <link rel="stylesheet" href="/stylesheets/main.css">
+   <!-- <link rel="stylesheet" href="./froala_editor.min.css"> -->
 </head>
 
 <body>
@@ -29,43 +28,44 @@
          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                <% if(!currentUser) { %>
-                  <li>
-                     <a href="/login">Login</a>
-                  </li>
-                  <li>
-                     <a href="/register">Sign Up</a>
-                  </li>
-                  <% } else { %>
-                     <li>
-                        <a href="#">Signed In as
-                           <%= currentUser.username %>
-                        </a>
-                     </li>
-                     <li>
-                        <a href="/logout">Logout</a>
-                     </li>
-                     <% } %>
+               <li>
+                  <a href="/login">Login</a>
+               </li>
+               <li>
+                  <a href="/register">Sign Up</a>
+               </li>
+               <% } else { %>
+               <li>
+                  <a href="#">Signed In as
+                     <%= currentUser.username %>
+                  </a>
+               </li>
+               <li>
+                  <a href="/logout">Logout</a>
+               </li>
+               <% } %>
 
-                        <li class="dropdown">
-                           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown
-                              <span class="caret"></span>
-                           </a>
-                           <ul class="dropdown-menu">
-                              <li>
-                                 <a href="#">Action</a>
-                              </li>
-                              <li>
-                                 <a href="#">Another action</a>
-                              </li>
-                              <li>
-                                 <a href="#">Something else here</a>
-                              </li>
-                              <li role="separator" class="divider"></li>
-                              <li>
-                                 <a href="#">Separated link</a>
-                              </li>
-                           </ul>
-                        </li>
+               <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                     aria-expanded="false">Dropdown
+                     <span class="caret"></span>
+                  </a>
+                  <ul class="dropdown-menu">
+                     <li>
+                        <a href="#">Action</a>
+                     </li>
+                     <li>
+                        <a href="#">Another action</a>
+                     </li>
+                     <li>
+                        <a href="#">Something else here</a>
+                     </li>
+                     <li role="separator" class="divider"></li>
+                     <li>
+                        <a href="#">Separated link</a>
+                     </li>
+                  </ul>
+               </li>
             </ul>
          </div>
          <!-- /.navbar-collapse -->
@@ -74,13 +74,12 @@
    </nav>
    <div class="container">
       <% if (error && error.length > 0) { %>
-         <div class="alert alert-danger" role="alert">
-            <%= error %>
-         </div>
+      <div class="alert alert-danger" role="alert">
+         <%= error %>
+      </div>
       <% } %>
       <% if (success && success.length > 0) { %>
-         <div class="alert alert-success" role="alert">
-            <%= success %>
-         </div>
+      <div class="alert alert-success" role="alert">
+         <%= success %>
+      </div>
       <% } %>
-            
