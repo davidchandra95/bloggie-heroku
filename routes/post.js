@@ -16,7 +16,16 @@ router.get('/new', (req, res) => {
 })
 
 // PUT AFTER /NEW ROUTE TO PREVENT NEW BEING READ AS AN ID
-
+router.get('/:id', (req, res) => {
+   let id = req.params.id;
+   Post.findById(id, (err, post) => {
+      if (err) {
+         console.log('Error ' + err);
+      } else {
+         res.render('./post/detail', { post });
+      }
+   });
+});
 
 router.get('/:id/edit', (req, res) => {
    Post.findById(req.params.id, (err, post) => {

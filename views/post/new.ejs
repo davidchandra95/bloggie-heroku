@@ -2,7 +2,7 @@
 
 <div class="row">
    <h1 style="text-align: center">Create a New Campground</h1>
-   <div style="width: 30%; margin: 25px auto;">
+   <div style="width: 80%; margin: 25px auto;">
       <form action="/campgrounds" method="POST">
          <div class="form-group">
             <input type="text" class="form-control" name="name" placeholder="Name">
@@ -22,7 +22,7 @@
             <button class="btn btn-primary btn-block">Submit</button>
          </div>
       </form>
-      <a href="/campgrounds">Back to Campgrounds</a>
+      <a href="/post">Back to Posts</a>
    </div>
 </div>
 
@@ -30,8 +30,9 @@
 <script src="/js/froala_editor.min.js"></script>
 <script>
 $(function(){
-   $('#edit').editable({
-      inlineMode:false
+   $('#edit').froalaEditor({
+      inlineMode:false,
+      buttons: ["bold"],
    });
 });
 </script>
