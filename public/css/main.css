@@ -1,0 +1,51 @@
+.div-profile-pciture {
+   width: 420px;
+   height: 108px;
+   overflow: hidden;
+   border-color: #DADADA;
+   border-style: solid;
+   border-width: thin;
+   background-color: pink;
+}
+
+.profile-picture {
+   display: block;
+   margin: auto;
+   margin-top: 10px;
+}
+
+.like-comment-section a {
+   color: inherit;
+}
+
+.author-date-section {
+   padding: 12px 0;
+}
+
+@media (min-width: 1200px) {
+   .container{
+       width: 70%;
+   }
+}
+
+.panel-body {
+   padding: 15px 0;
+}
+
+.well {
+   background: #ffffff;
+}
+
+.helper {
+   display: inline-block;
+   height: 100%;
+   vertical-align: middle;
+}
+
+.pp-header {
+   height: 45px;
+   vertical-align: middle;
+   width: auto;
+   margin: 3px 0;
+   
+}

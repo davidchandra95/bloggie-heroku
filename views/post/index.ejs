@@ -1,17 +1,77 @@
 <% include ../partials/header %>
+<% include ../partials/left %>
+<div class="col-sm-6">
+   <header class="text-center">
+      <h1>Welcome to Bloggie</h1>
+      <p>View posts from all over the world</p>
+      <p>
+         <a href="/post/new" class="btn btn-default btn-lg btn-block">Write your own story <i class="glyphicon glyphicon-pencil"></i></a>
+      </p>
+   </header>
 
-<header>
-   <h1>Welcome to Youth of Happiness</h1>
-   <p>View posts from all over the world</p>
-   <p>
-      <a href="/post/new" class="btn btn-primary btn-lg">Write your own story</a>
-   </p>
-</header>
+   <div class="row">
+      <div class="col-lg-12">
+         <h3>Our Most Popular Stories</h3>
+      </div>
+   </div>
+   <div class="row">
+      <div class="w3-col l12 s12">
+         <% posts.forEach(function (post) { %>
 
-<div class="row">
-   <div class="col-lg-12">
-      <h3>Our Most Popular Stories</h3>
+         <div class="w3-card-4 w3-margin w3-white">
+            <a href="/post/<%= post._id %>" style="color:inherit">
+               <% if (post.image != '') { %>
+               <img src="<%= post.image %>" alt="<%= post.author.username %>" style="height:200px;width:100%" class="portrait">
+               <% } %>
+
+               <div class="w3-container">
+                  <div class="row">
+                     <div class="w3-col m2">
+                        <a href="/user/<%= post.author.id %>"><img src="https://pbs.twimg.com/profile_images/1036553930409431040/c3in8jKL_400x400.jpg"
+                              alt="" height="75px" width="75px" class="profile-picture img-circle"></a>
+                     </div>
+
+                     <div class="w3-col m8">
+                        <a href="/post/<%= post._id %>" style="color:inherit">
+                           <h3><b>
+                                 <%= post.title %></b></h3>
+                        </a>
+                        <h5>
+                           <% post.tags.forEach(function (tag) { %>
+                           <a href="/tag/<%= tag %>">
+                              <%= tag %></a>
+                           <% }) %>
+                        </h5>
+                     </div>
+                  </div>
+               </div>
+            </a>
+            <hr style="margin-bottom: 8px">
+            <div class="w3-container">
+               <div class="w3-row">
+                  <div class="w3-col m8 s12">
+                     <p class="author-date-section">
+                        <a href="/user/<%= post.author.id %>">
+                           <%= post.author.username %></a> &#183;
+                        <span class="w3-opacity">
+                           <%= post.displayDate %></span>
+                     </p>
+                  </div>
+                  <div class="w3-col m4 w3-hide-small">
+                     <p>
+                        <span class="w3-padding-large w3-right like-comment-section">
+                           <a href="/post/<%= post._id %>"> <i class="fa fa-comments"></i> <span class="badge">42</span></a>
+                           <a href="/post/<%= post._id %>"> <i class="fa fa-heart"></i> <span class="badge">42</span></a>
+                        </span>
+                     </p>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+         <% }); %>
+      </div>
    </div>
 </div>
-
+<% include ../partials/right %>
 <% include ../partials/footer %>

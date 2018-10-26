@@ -4,7 +4,7 @@
    <h1 style="text-align: center">Your Story</h1>
    <hr>
    <div>
-      <form action="/campgrounds" method="POST">
+      <form action="/post" method="POST">
 
          <div class="row">
             <div class="form-group col-md-6 col-md-offset-3">
@@ -16,7 +16,11 @@
                <input type="text" class="form-control" autocomplete="off" name="image" placeholder="Image URL">
             </div>
          </div>
-
+         <div class="row">
+            <div class="form-group col-md-6 col-md-offset-3">
+               <input type="text" class="form-control" autocomplete="off" name="tags" placeholder="Tags">
+            </div>
+         </div>
 
          <!-- <div class="form-group">
             <input type="text" class="form-control" name="description" placeholder="Description">
@@ -24,7 +28,7 @@
          <div class="row">
             <div class="form-group col-md-12">
                <section id="editor">
-                  <div id="edit"></div>
+                  <textarea id="content" name="content"></textarea>
                </section>
             </div>
          </div>
@@ -39,7 +43,7 @@
 <% include ../partials/footer %>
 <script>
    $(function () {
-      $('#edit').froalaEditor({
+      $('#content').froalaEditor({
          inlineMode: false,
          toolbarButtons: ['undo', 'redo', '|', 'bold', 'italic', 'underline', 'strikeThrough', 'subscript',
             'superscript', 'outdent', 'indent', 'clearFormatting', 'insertTable', 'html'

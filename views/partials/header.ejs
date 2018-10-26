@@ -3,16 +3,18 @@
 
 <head>
    <meta charset="UTF-8">
-   <title>Youth of Happiness</title>
+   <title>Bloggie</title>
    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
    <link rel="stylesheet" href="/css/froala_editor.min.css">
    <link rel="stylesheet" href="/css/table.min.css">
+   <link rel="stylesheet" href="/css/main.css">
 </head>
 
 <body>
    <nav class="navbar navbar-default">
-      <div class="container-fluid">
+      <div class="container" style="padding: 0">
          <!-- Brand and toggle get grouped for better mobile display -->
          <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
@@ -22,7 +24,7 @@
                <span class="icon-bar"></span>
                <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">Youth of Happiness</a>
+            <a class="navbar-brand" href="/">Bloggie</a>
          </div>
 
          <!-- Collect the nav links, forms, and other content for toggling -->
@@ -37,9 +39,11 @@
                </li>
                <% } else { %>
                <li>
-                  <a href="#">Signed In as
+                  <!-- <a href="#">Signed In as
                      <%= currentUser.username %>
-                  </a>
+                  </a> --><span class="helper"></span>
+                  <img src="https://pbs.twimg.com/profile_images/1036553930409431040/c3in8jKL_400x400.jpg"
+                        class="img-circle pp-header"  alt="Avatar">
                </li>
                <li>
                   <a href="/logout">Logout</a>
@@ -84,3 +88,4 @@
          <%= success %>
       </div>
       <% } %>
+      <div class="row">
