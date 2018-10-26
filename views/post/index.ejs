@@ -1,13 +1,21 @@
 <% include ../partials/header %>
 <% include ../partials/left %>
-<div class="col-sm-6">
-   <header class="text-center">
-      <h1>Welcome to Bloggie</h1>
-      <p>View posts from all over the world</p>
-      <p>
-         <a href="/post/new" class="btn btn-default btn-lg btn-block">Write your own story <i class="glyphicon glyphicon-pencil"></i></a>
-      </p>
-   </header>
+<div class="col-sm-6 content">
+   <div class="row">
+      <div class="col-md-12">
+         <div class="w3-card-4 w3-white" >
+            <div class="w3-container casual-card">
+            <h1>Welcome to Bloggie</h1>
+            <p>View stories from all over the world</p>
+            <a href="/post/new" class="w3-btn w3-blue w3-large w3-block w3-round">
+               <p style="margin-bottom:0">
+                  Write your own story ... <i class="glyphicon glyphicon-pencil" style="font-size: 0.8em"></i>
+               </p>
+            </a>
+         </div>
+         </div>
+      </div>
+   </div>
 
    <div class="row">
       <div class="col-lg-12">
@@ -21,7 +29,9 @@
          <div class="w3-card-4 w3-margin w3-white">
             <a href="/post/<%= post._id %>" style="color:inherit">
                <% if (post.image != '') { %>
-               <img src="<%= post.image %>" alt="<%= post.author.username %>" style="height:200px;width:100%" class="portrait">
+               <div>
+                  <img src="<%= post.image %>" alt="<%= post.author.username %>" style="width:100%" class="image-feed">
+               </div>
                <% } %>
 
                <div class="w3-container">
@@ -60,8 +70,8 @@
                   <div class="w3-col m4 w3-hide-small">
                      <p>
                         <span class="w3-padding-large w3-right like-comment-section">
-                           <a href="/post/<%= post._id %>"> <i class="fa fa-comments"></i> <span class="badge">42</span></a>
-                           <a href="/post/<%= post._id %>"> <i class="fa fa-heart"></i> <span class="badge">42</span></a>
+                           <a href="/post/<%= post._id %>"> <i class="fa fa-comments"></i> <span class="w3-badge w3-blue notif">42</span></a>
+                           <a href="/post/<%= post._id %>"> <i class="fa fa-heart"></i> <span class="w3-badge w3-pale-red notif">42</span></a>
                         </span>
                      </p>
                   </div>

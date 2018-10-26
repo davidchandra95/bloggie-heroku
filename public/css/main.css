@@ -1,3 +1,26 @@
+* {
+   font-family: 'Patrick Hand', cursive;
+   font-size: 1.6rem;
+}
+
+body {
+   padding-top: 70px;
+   background: #dbeef3;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+   font-family: 'Patrick Hand', cursive;
+}
+
+input[type='text'] {
+   font-size: 0.8em;
+}
+
 .div-profile-pciture {
    width: 420px;
    height: 108px;
@@ -23,8 +46,8 @@
 }
 
 @media (min-width: 1200px) {
-   .container{
-       width: 70%;
+   .container {
+      width: 70%;
    }
 }
 
@@ -47,5 +70,36 @@
    vertical-align: middle;
    width: auto;
    margin: 3px 0;
-   
 }
+
+.w3-card-4,
+.w3-hover-shadow:hover {
+   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.19);
+}
+
+.panel, .navbar.navbar-default.navbar-fixed-top {
+   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.19);
+}
+
+.image-feed {
+   background-repeat: no-repeat;
+   background-position: center;
+}
+
+#left-sidebar {
+   float: left;
+}
+
+.footer {
+   margin: 45px 0;
+}
+
+.w3-container.casual-card {
+   padding-top: 10px;
+   padding-bottom: 20px;
+}
+
+.notif{
+   font-size: 1.4rem;
+}
+
