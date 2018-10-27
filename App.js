@@ -1,4 +1,5 @@
 const express = require ('express');
+const favicon = require('serve-favicon');
 const app = express();
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
@@ -16,6 +17,7 @@ mongoose.connect('mongodb://jastin:jastin10@ds133338.mlab.com:33338/db-bloggie')
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + "/public"));
+app.use(favicon('favicon.ico')); 
 app.use(methodOverride("_method"));
 app.use(flash());
 app.use(require('express-session')({
