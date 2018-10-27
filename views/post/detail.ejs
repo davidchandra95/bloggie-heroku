@@ -2,54 +2,57 @@
 
 <div class="row">
    <div class="col-md-8 col-md-offset-2">
-      <div class="well">
+      <div class="w3-card-4 w3-white">
          <img src="<%= post.image %>" width="100%" alt="<%= post.title %>">
-         <div class="row">
-            <div class="col-md-12">
-               <div class="w3-panel w3-leftbar w3-sand">
-                  <p class="w3-xxlarge">
-                     <%= post.title %>
-                  </p>
-                  <p class="w3-opacity">
-                     <%= post.description %>
-                  </p>
+         <div class="w3-container casual-card">
+            <div class="w3-row">
+               <p class="w3-jumbo">
+                  <%= post.title %>
+               </p>
+            </div>
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="w3-panel w3-leftbar w3-sand">
+                     <p class="w3-opacity">
+                        <%= post.description %>
+                     </p>
+                  </div>
+               </div>
+            </div>
+
+            <div class="row">
+               <div class="col-md-12">
+                  <p class="w3-opacity w3-large">
+                     <a href="/user/<%= post.author.id %>">
+                        <%= post.author.username %></a> -
+                     <%= post.displayDate %></p>
+               </div>
+            </div>
+            <div class="w3-row">
+               <% post.tags.forEach(function (tag) { %>
+               <a class="w3-light-gray w3-large" href="/tag/<%= tag %>">
+                  <%= tag %></a>
+               <% }) %>
+            </div>
+            <hr>
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="w3-panel">
+                     <%- post.content %>
+                  </div>
+               </div>
+            </div>
+            <div class="w3-row">
+               <div class="w3-col m12">
+                  <span class="w3-right like-comment-section">
+                     <a href="/post/<%= post._id %>"> <i class="fa fa-heart"></i> <span class="w3-badge w3-pale-red notif">
+                           <%= post.likes.length %></span></a>
+                     <a href="/post/<%= post._id %>"> <i class="fa fa-comments"></i> <span class="w3-badge w3-blue notif">
+                           <%= post.comments.length %></span></a>
+                  </span>
                </div>
             </div>
          </div>
-         <div class="row">
-            <div class="col-md-12">
-               <small class="w3-opacity">By
-                  <a href="/user/<%= post.author.id %>">
-                     <%= post.author.username %></a> -
-                  <%= post.displayDate %></small>
-            </div>
-         </div>
-         <hr>
-         <div class="row">
-            <div class="col-md-12">
-               <div class="w3-panel w3-card-4">
-                  <%- post.content %>
-               </div>
-            </div>
-         </div>
-
-         <div class="w3-row">
-            <% post.tags.forEach(function (tag) { %>
-            <a class="w3-light-gray" href="/tag/<%= tag %>">
-               <%= tag %></a>
-            <% }) %>
-         </div>
-         <div class="w3-row">
-            <div class="w3-col m12">
-               <span class="w3-right like-comment-section">
-                  <a href="/post/<%= post._id %>"> <i class="fa fa-heart"></i> <span class="w3-badge w3-pale-red notif">
-                        <%= post.likes.length %></span></a>
-                  <a href="/post/<%= post._id %>"> <i class="fa fa-comments"></i> <span class="w3-badge w3-blue notif">
-                        <%= post.comments.length %></span></a>
-               </span>
-            </div>
-         </div>
-
       </div>
       <div class="row">
          <div class="col-md-12">
