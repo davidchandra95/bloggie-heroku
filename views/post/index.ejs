@@ -3,30 +3,29 @@
 <div class="col-sm-6 content">
    <div class="row">
       <div class="col-md-12">
-         <div class="w3-card-4 w3-white" >
+         <div class="w3-card-4 w3-white w3-hover-shadow">
             <div class="w3-container casual-card">
-            <h1>Welcome to Bloggie</h1>
-            <p>View stories from all over the world</p>
-            <a href="/post/new" class="w3-btn w3-blue w3-large w3-block w3-round">
-               <p style="margin-bottom:0">
-                  Write your own story ... <i class="glyphicon glyphicon-pencil" style="font-size: 0.8em"></i>
-               </p>
-            </a>
-         </div>
+               <h1>Welcome to Bloggie</h1>
+               <p>View stories from all over the world</p>
+               <a href="/post/new" class="w3-btn w3-blue w3-large w3-block w3-round">
+                  <p style="margin-bottom:0">
+                     Write your own story ... <i class="glyphicon glyphicon-pencil" style="font-size: 0.8em"></i>
+                  </p>
+               </a>
+            </div>
          </div>
       </div>
    </div>
 
    <div class="row">
       <div class="col-lg-12">
-         <h3>Our Most Popular Stories</h3>
+         <h3>Our Most Newest Stories</h3>
       </div>
    </div>
    <div class="row">
       <div class="w3-col l12 s12">
          <% posts.forEach(function (post) { %>
-
-         <div class="w3-card-4 w3-margin w3-white">
+         <div class="w3-card-4 w3-margin w3-white w3-hover-shadow">
             <a href="/post/<%= post._id %>" style="color:inherit">
                <% if (post.image != '') { %>
                <div>
@@ -42,36 +41,45 @@
                      </div>
 
                      <div class="w3-col m8">
-                        <a href="/post/<%= post._id %>" style="color:inherit">
-                           <h3><b>
-                                 <%= post.title %></b></h3>
-                        </a>
-                        <h5>
+                        <div class="w3-row">
+                           <a href="/post/<%= post._id %>" style="color:inherit">
+                              <h1 >
+                                    <%= post.title %></h1>
+                           </a>
+                        </div>
+                        <div class="w3-row">
+                           <p class="w3-opacity w3-large" style="margin-bottom: 0">
+                              <%= post.description %>
+                           </p>
+                        </div>
+                        <div class="w3-row ">
                            <% post.tags.forEach(function (tag) { %>
-                           <a href="/tag/<%= tag %>">
+                           <a class="w3-large" href="/tag/<%= tag %>">
                               <%= tag %></a>
                            <% }) %>
-                        </h5>
+                        </div>
                      </div>
                   </div>
                </div>
             </a>
-            <hr style="margin-bottom: 8px">
+            <hr style="margin-bottom: 0">
             <div class="w3-container">
                <div class="w3-row">
                   <div class="w3-col m8 s12">
                      <p class="author-date-section">
                         <a href="/user/<%= post.author.id %>">
                            <%= post.author.username %></a> &#183;
-                        <span class="w3-opacity">
+                        <span class="w3-opacity w3-medium">
                            <%= post.displayDate %></span>
                      </p>
                   </div>
                   <div class="w3-col m4 w3-hide-small">
                      <p>
-                        <span class="w3-padding-large w3-right like-comment-section">
-                           <a href="/post/<%= post._id %>"> <i class="fa fa-comments"></i> <span class="w3-badge w3-blue notif">42</span></a>
-                           <a href="/post/<%= post._id %>"> <i class="fa fa-heart"></i> <span class="w3-badge w3-pale-red notif">42</span></a>
+                        <span class="w3-right like-comment-section">
+                           <a href="/post/<%= post._id %>"> <i class="fa fa-heart"></i> <span class="w3-badge w3-pale-red notif">
+                                 <%= post.likes.length %></span></a>
+                           <a href="/post/<%= post._id %>"> <i class="fa fa-comments"></i> <span class="w3-badge w3-blue notif">
+                                 <%= post.comments.length %></span></a>
                         </span>
                      </p>
                   </div>

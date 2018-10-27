@@ -19,7 +19,8 @@
          <div class="row">
             <div class="col-md-12">
                <small class="w3-opacity">By
-                  <%= post.author.username %> -
+                  <a href="/user/<%= post.author.id %>">
+                     <%= post.author.username %></a> -
                   <%= post.displayDate %></small>
             </div>
          </div>
@@ -31,6 +32,24 @@
                </div>
             </div>
          </div>
+
+         <div class="w3-row">
+            <% post.tags.forEach(function (tag) { %>
+            <a class="w3-light-gray" href="/tag/<%= tag %>">
+               <%= tag %></a>
+            <% }) %>
+         </div>
+         <div class="w3-row">
+            <div class="w3-col m12">
+               <span class="w3-right like-comment-section">
+                  <a href="/post/<%= post._id %>"> <i class="fa fa-heart"></i> <span class="w3-badge w3-pale-red notif">
+                        <%= post.likes.length %></span></a>
+                  <a href="/post/<%= post._id %>"> <i class="fa fa-comments"></i> <span class="w3-badge w3-blue notif">
+                        <%= post.comments.length %></span></a>
+               </span>
+            </div>
+         </div>
+
       </div>
       <div class="row">
          <div class="col-md-12">

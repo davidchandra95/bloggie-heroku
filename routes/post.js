@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const Post = require('../models/post');
+const Post = require('../models/post/post');
+const Comment = require('../models/post/comment');
+const Like = require('../models/post/like');
 const middleware = require('../middleware')
 
 function formatDate(date) {
@@ -19,14 +21,21 @@ function formatDate(date) {
 }
 
 router.get('/', (req, res) => {
-   Post.find({isPublic: true}, (err, posts) => {
-      if (err) return res.send({ message: 'aw snap! index' + err });
-
-      posts.forEach((post, i) => {
-         posts[i]['displayDate'] = formatDate(post.createdAt)
+   Post.find({ isPublic: true })
+      .populate("comments")
+      .populate("likes")
+      .sort({ createdAt: -1 })
+      .exec((err, posts) => {
+         if (err) {
+            console.log(err);
+            res.send({ message: 'aw snap! ' + err });
+         } else {
+            posts.forEach((post, i) => {
+               posts[i]['displayDate'] = formatDate(post.createdAt)
+            });
+            res.render('./post/index', { posts });
+         }
       });
-      res.render('./post/index', { posts });
-   });
 });
 
 router.post('/', middleware.isLoggedIn, function (req, res) {
@@ -37,10 +46,10 @@ router.post('/', middleware.isLoggedIn, function (req, res) {
 
    var post = {
       title: req.body.title,
-      image: req.body.image,
+      image: req.body.image == '' ? 'https://howfix.net/wp-content/uploads/2018/02/sIaRmaFSMfrw8QJIBAa8mA-article.png' : req.body.image,
       content: req.body.content,
-      tags: req.body.tags,
-      description: req.body.descripition,
+      tags: req.body.tags == '' ? ['#general'] : req.body.tags.split(' '),
+      description: req.body.description,
       isPublic: req.body.isPublic == 'on' ? true : false,
       author: author
    };
