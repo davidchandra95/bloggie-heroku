@@ -2,9 +2,11 @@ const mongoose = require('mongoose');
 
 const postSchema = new mongoose.Schema({
    title: String,
-   image: String,
+   image: {type: String, default: 'https://howfix.net/wp-content/uploads/2018/02/sIaRmaFSMfrw8QJIBAa8mA-article.png'},
    content: String,
-   tags: {type: Array, default:[]},
+   description: {type: String, default: '-'},
+   tags: {type: Array, default:['#general']},
+   isPublic: {type: Boolean, default: true},
    author: {
       id: {
          type: mongoose.Schema.Types.ObjectId,

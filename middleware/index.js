@@ -49,6 +49,7 @@ middleware.isLoggedIn = function(req, res, next) {
       return next();
    } else {
       req.flash("danger", "Please Login First!");
+      req.session.redirectTo = req.originalUrl;
       res.redirect('/login');
    }
 }

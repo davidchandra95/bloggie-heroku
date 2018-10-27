@@ -1,0 +1,45 @@
+<% include ../partials/header %>
+
+<div class="row">
+   <div class="col-md-8 col-md-offset-2">
+      <div class="well">
+         <img src="<%= post.image %>" width="100%" alt="<%= post.title %>">
+         <div class="row">
+            <div class="col-md-12">
+               <div class="w3-panel w3-leftbar w3-sand">
+                  <p class="w3-xxlarge">
+                     <%= post.title %>
+                  </p>
+                  <p class="w3-opacity">
+                     <%= post.description %>
+                  </p>
+               </div>
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-md-12">
+               <small class="w3-opacity">By
+                  <%= post.author.username %> -
+                  <%= post.displayDate %></small>
+            </div>
+         </div>
+         <hr>
+         <div class="row">
+            <div class="col-md-12">
+               <div class="w3-panel w3-card-4">
+                  <%- post.content %>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="row">
+         <div class="col-md-12">
+            <div class="pull-right">
+               <a href="/post">Back to Posts</a>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+
+<% include ../partials/footer %>

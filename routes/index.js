@@ -4,7 +4,7 @@ const User = require('../models/user');
 const passport = require('passport');
 
 router.get('/', (req, res) => {
-   res.render('home');
+   res.redirect('post');
 });
 
 router.get('/register', (req, res) => {
@@ -30,9 +30,12 @@ router.get('/login', (req, res) => {
 });
 
 router.post('/login', passport.authenticate('local', {
-   successRedirect: '/post',
+   // successRedirect: req.session.redirectTo,
    failureRedirect: '/login'
-}), (req, res) => {});
+}), (req, res) => {
+   res.redirect(req.session.redirectTo);
+   delete req.session.redirectTo;
+});
 
 router.get('/logout', (req, res) => {
    req.logout();

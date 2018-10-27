@@ -19,7 +19,7 @@ function formatDate(date) {
 }
 
 router.get('/', (req, res) => {
-   Post.find({}, (err, posts) => {
+   Post.find({isPublic: true}, (err, posts) => {
       if (err) return res.send({ message: 'aw snap! index' + err });
 
       posts.forEach((post, i) => {
@@ -40,6 +40,8 @@ router.post('/', middleware.isLoggedIn, function (req, res) {
       image: req.body.image,
       content: req.body.content,
       tags: req.body.tags,
+      description: req.body.descripition,
+      isPublic: req.body.isPublic == 'on' ? true : false,
       author: author
    };
 
@@ -66,6 +68,7 @@ router.get('/:id', (req, res) => {
       if (err) {
          console.log('Error ' + err);
       } else {
+         post['displayDate'] = formatDate(post.createdAt)
          res.render('./post/detail', { post });
       }
    });
