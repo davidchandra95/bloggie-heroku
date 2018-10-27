@@ -46,6 +46,6 @@ app.use('/static', express.static(path.join(__dirname, 'public')))
 app.use(indexRoutes);
 app.use('/post', postRoutes);
 
-app.listen(3000 || process.env.PORT, () => {
+app.listen(process.env.PORT || 3000, () => {
    console.log("Bloggie is running..");
 });
