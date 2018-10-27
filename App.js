@@ -15,6 +15,7 @@ const flash = require('connect-flash');
 
 mongoose.connect('mongodb://jastin:jastin10@ds133338.mlab.com:33338/db-bloggie');
 app.use(bodyParser.urlencoded({ extended: true }));
+app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + "/public"));
 app.use(favicon('favicon.ico')); 
@@ -45,6 +46,6 @@ app.use('/static', express.static(path.join(__dirname, 'public')))
 app.use(indexRoutes);
 app.use('/post', postRoutes);
 
-app.listen(3000 || process.env.PORT, process.env.IP, () => {
+app.listen(3000 || process.env.PORT, () => {
    console.log("Bloggie is running..");
 });
