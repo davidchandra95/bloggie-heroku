@@ -4,7 +4,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const passport = require('passport');
-const localStrategy = require('passport-local');
+const localStrategy = require('passport-local').Strategy;
 const path = require('path');
 
 const User = require('./models/user');

@@ -11,16 +11,16 @@ router.get('/register', (req, res) => {
    res.render('register');
 });
 
-router.post('/register', (req, res) => {
+router.post('/register/', (req, res) => {
    let newUser = new User({
       email: req.body.email,
       username: req.body.username
    });
    User.register(newUser, req.body.password, (err, user) => {
-      if (err) return res.render('register');
+      if (err) return res.redirect('/register');
 
       passport.authenticate('local')(req, res, () => {
-         res.render('home');
+         res.redirect('/');
       });
    });
 });
