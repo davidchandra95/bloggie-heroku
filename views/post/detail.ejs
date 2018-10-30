@@ -1,4 +1,59 @@
 <% include ../partials/header %>
+<style>
+   .icon-bar {
+      right: 40px;
+      position: fixed;
+      top: 85%;
+      -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      transform: translateY(-50%);
+      margin-left: 120px;
+   }
+
+   .icon-bar a {
+      display: block;
+      text-align: center;
+      padding: 15px;
+      transition: all 0.3s ease;
+      color: white;
+      font-size: 20px;
+      width: 60px;
+      height: 60px;
+      bottom: 40px;
+      right: 40px;
+      border-radius: 50px;
+      box-shadow: 2px 2px 3px #999;
+   }
+
+   .icon-bar a:hover {
+      background-color: #000;
+   }
+
+   .button {
+      margin-bottom: 5px;
+   }
+
+   .link {
+      background: #3B5998;
+      color: white;
+   }
+
+   .like {
+      background: #ffdddd;
+      color: white;
+   }
+
+   .comment {
+      background: #2196f3;
+      color: white;
+   }
+
+</style>
+<div class="icon-bar">
+   <a href="/post/<%= post._id %>" class="button link"><i class="fa fa-link"></i></a>
+   <a href="#" class="button like"><i class="fa fa-heart"></i></a>
+   <a href="#" class="button comment"><i class="fa fa-comments"></i></a>
+</div>
 
 <div class="row">
    <div class="col-md-8 col-md-offset-2">
@@ -25,7 +80,8 @@
                   <p class="w3-opacity w3-large">
                      <a href="/user/<%= post.author.id %>">
                         <%= post.author.username %></a> -
-                     <%= post.displayDate %></p>
+                     <%= post.displayDate %>
+                  </p>
                </div>
             </div>
             <div class="w3-row">
@@ -63,5 +119,5 @@
       </div>
    </div>
 </div>
-
+<script src="/scripts/post/detail.js"></script>
 <% include ../partials/footer %>
