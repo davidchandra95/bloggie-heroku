@@ -1,6 +1,6 @@
 * {
-   font-family: 'Patrick Hand', cursive;
-   font-size: 1.5rem;
+   font-family: 'Montserrat', cursive;
+   font-weight: 700;
 }
 
 body {
@@ -14,7 +14,7 @@ h3,
 h4,
 h5,
 h6 {
-   font-family: 'Patrick Hand', cursive;
+   font-family: 'Montserrat', cursive;
 }
 
 /* input[type='text'] {
