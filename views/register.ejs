@@ -1,28 +1,39 @@
-<% include ./partials/header %>
+<!DOCTYPE html>
+<html lang="en">
 
-<h1>Sign Up</h1>
+<head>
+  <meta charset="UTF-8">
+  <title>Bloggie</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="/css/login.css">
+  <link rel="shortcut icon" href="/public/assets/images/favicon.ico" />
+  <link href="https://fonts.googleapis.com/css?family=Patrick+Hand" rel="stylesheet">
+</head>
 
-<form action="/register" method="POST">
-   <div>
-      <input type="text" name="email" placeholder="Email">
-   </div>
-   <div>
-      <input type="text" name="username" placeholder="Username">
-   </div>
-   <div>
-      <input type="password" name="password" placeholder="Password">
-   </div>
-   <div>
-      <button>Sign Up!</button>
-   </div>
+<body>
+  <div class="limiter">
+    <div class="container-login100">
 
-   <div>
-      <%= status %>
-   </div>
-   <div>
-      <%= message %>
-   </div>
+      <div class="w3-card-4" style="width: 500px; height: auto">
+        <div class="w3-container text-center">
+          <div class="w3-row">
+            <h1><strike>Pick your pen</strike> Sign Up</h1>
+          </div>
+        </div>
+        <form class="w3-container" action="/register" method="POST" style="padding-top: 10px; padding-bottom: 20px">
+          <p><label>Username</label>
+            <input type="text" class="w3-input" name="username" placeholder="" autocomplete="off">
+          </p>
+          <p><label>Password</label>
+            <input type="password" class="w3-input" name="password" placeholder="" autocomplete="off">
+          </p>
+          <button class="w3-btn w3-green w3-block w3-round">Sign Up!</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
 
-</form>
-
-<% include ./partials/footer %>
+</html>
